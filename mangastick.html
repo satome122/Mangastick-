@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangastick Manga</title>
+    <title>Mangastick Manga - أفضل موقع لقراءة المانغا</title>
+    
+    <!-- تحسينات SEO -->
+    <meta name="description" content="Mangastick Manga - أفضل موقع لقراءة المانغا والمانهوا بجودة عالية.">
+    <meta name="keywords" content="مانغا, مانهوا, Manga, Manhwa, أفضل المانهوا, Solo Leveling, Return of the Mount Hua Sect">
+    <meta name="author" content="Mangastick Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Mangastick Manga - اقرأ أفضل المانهوا">
+    <meta property="og:description" content="اكتشف أحدث وأفضل المانهوا المترجمة بجودة عالية.">
+    <meta property="og:image" ">
+    <meta property="og:url" content="https://username.github.io/repository-name/">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://i.postimg.cc/nh5YYtXr/482080dfded72529f631cdb206bf54fb.jpg">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/nh5YYtXr/482080dfded72529f631cdb206bf54fb.jpg">
-    <link rel="apple-touch-icon" href="https://i.postimg.cc/nh5YYtXr/482080dfded72529f631cdb206bf54fb.jpg">
-
+    <!-- ربط ملف الـ CSS -->
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* تنسيق الصفحة */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -85,6 +93,58 @@
         .button:hover {
             background-color: #218838;
         }
+
+        /* نافذة منبثقة */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .popup-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .popup-content p {
+            margin-bottom: 20px;
+        }
+
+        .popup-content .close-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .popup-content .close-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* رسالة عدم وجود نتائج بحث */
+        .no-results {
+            text-align: center;
+            color: #888;
+            margin: 20px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -99,106 +159,174 @@
         <a href="#">Search</a>
     </nav>
 
+    <!-- مربع البحث -->
+    <input type="text" id="search-bar" placeholder="بحث عن مانغا..." onkeyup="searchManga()">
+
+    <!-- رسالة عدم وجود نتائج -->
+    <p id="no-results-message" class="no-results">لم يتم العثور على نتائج.</p>
+
     <div class="container">
-        <!-- Manga 1 -->
+        <!-- مانغا 1 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/T3k7FZx9/ZGdunxv-Imgur-1.jpg" alt="Manga 1">
+            <img src="https://i.postimg.cc/T3k7FZx9/ZGdunxv-Imgur-1.jpg" alt="Return of the Mount Hua Sect" loading="lazy">
             <div class="manga-title">Return of the Mount Hua Sect</div>
             <div class="manga-description">
                 A martial artist embarks on a journey to restore the Mount Hua Sect.
             </div>
-            <a href="manga1.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 2 -->
+        <!-- مانغا 2 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/TYQg8LkL/a7d037396948b6c6b6980c3b39072f3c.jpg" alt="Manga 2">
+            <img src="https://i.postimg.cc/TYQg8LkL/a7d037396948b6c6b6980c3b39072f3c.jpg" alt="Martial Peak" loading="lazy">
             <div class="manga-title">Martial Peak</div>
             <div class="manga-description">
                 Follow the journey of a martial artist climbing to the peak of power.
             </div>
-            <a href="manga2.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 3 -->
+        <!-- مانغا 3 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/kXfHCxRx/c37f2aa4a23a8096dddb8609b4a92a6f-1.jpg" alt="Manga 3">
+            <img src="https://i.postimg.cc/kXfHCxRx/c37f2aa4a23a8096dddb8609b4a92a6f-1.jpg" alt="Solo Leveling" loading="lazy">
             <div class="manga-title">Solo Leveling</div>
             <div class="manga-description">
                 A weak hunter becomes the strongest after gaining a mysterious system.
             </div>
-            <a href="manga3.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 4 -->
+        <!-- مانغا 4 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/ZRnmQpT5/66df3916bfb9c63f6bf006dd5a1b3362.jpg" alt="Manga 4">
+            <img src="https://i.postimg.cc/ZRnmQpT5/66df3916bfb9c63f6bf006dd5a1b3362.jpg" alt="Above Ten Thousand Peoples" loading="lazy">
             <div class="manga-title">Above Ten Thousand Peoples</div>
             <div class="manga-description">
                 A man reincarnates to rewrite the mistakes of his past life.
             </div>
-            <a href="manga4.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 5 -->
+        <!-- مانغا 5 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/65J38bWV/36b42a5ab451171868929c82e4c7d466.jpg" alt="Manga 5">
+            <img src="https://i.postimg.cc/65J38bWV/36b42a5ab451171868929c82e4c7d466.jpg" alt="Solo Max-Level Newbie" loading="lazy">
             <div class="manga-title">Solo Max-Level Newbie</div>
             <div class="manga-description">
                 A gamer turned real-life superplayer, reaching new heights in the game world.
             </div>
-            <a href="manga5.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 6 -->
+        <!-- مانغا 6 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/jjJgJPqD/7c6a3d9e5820b52d84500921412341b5.jpg" alt="Manga 6">
+            <img src="https://i.postimg.cc/jjJgJPqD/7c6a3d9e5820b52d84500921412341b5.jpg" alt="The Beginning After The End" loading="lazy">
             <div class="manga-title">The Beginning After The End</div>
             <div class="manga-description">
                 A reincarnated king seeks to find meaning and protect his loved ones.
             </div>
-            <a href="manga6.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 7 -->
+        <!-- مانغا 7 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/gj9Y6rWc/d91a0135aa2494fb6d48b5194acea492.jpg" alt="Manga 7">
+            <img src="https://i.postimg.cc/gj9Y6rWc/d91a0135aa2494fb6d48b5194acea492.jpg" alt="Magic Emperor" loading="lazy">
             <div class="manga-title">Magic Emperor</div>
             <div class="manga-description">
                 A rebellious young man with an insatiable thirst for power in a world of magic.
             </div>
-            <a href="manga7.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 8 -->
+        <!-- مانغا 8 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/zfV5tTDX/dc2da4bad61ebb6de27d1611e7dec8bd.jpg" alt="Manga 8">
+            <img src="https://i.postimg.cc/zfV5tTDX/dc2da4bad61ebb6de27d1611e7dec8bd.jpg" alt="The Mad Demon" loading="lazy">
             <div class="manga-title">The Mad Demon</div>
             <div class="manga-description">
                 The Mad Demon follows a demon's quest for immortality, seeking power at any cost.
             </div>
-            <a href="manga8.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 9 -->
+        <!-- مانغا 9 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/dQ8FxsFd/8580bdccb744e854eb28edfe39c83e96.jpg" alt="Manga 9">
+            <img src="https://i.postimg.cc/dQ8FxsFd/8580bdccb744e854eb28edfe39c83e96.jpg" alt="The Crazy Demon" loading="lazy">
             <div class="manga-title">The Crazy Demon</div>
             <div class="manga-description">
                 A disciple of justice reincarnates as a demon sect leader.
             </div>
-            <a href="manga9.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
 
-        <!-- Manga 10 -->
+        <!-- مانغا 10 -->
         <div class="manga-item">
-            <img src="https://i.postimg.cc/HntfsLWh/9202ddc2549ff92d01d96e6f3f7b6437.jpg" alt="Manga 10">
+            <img src="https://i.postimg.cc/HntfsLWh/9202ddc2549ff92d01d96e6f3f7b6437.jpg" alt="Nano Machine" loading="lazy">
             <div class="manga-title">Nano Machine</div>
             <div class="manga-description">
                 A young man with an advanced nano-machine in his body, striving to become the strongest.
             </div>
-            <a href="manga10.html" class="button">Read More</a>
+            <a href="#" class="button">Read More</a>
         </div>
     </div>
+
+    <script>
+        // إضافة تأثير عند النقر على "قراءة المزيد"
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                // الحصول على عنوان ووصف المانغا
+                const mangaItem = event.target.closest('.manga-item');
+                const title = mangaItem.querySelector('.manga-title').textContent;
+                const description = mangaItem.querySelector('.manga-description').textContent;
+                
+                // عرض نافذة منبثقة
+                showPopup(title, description);
+            });
+        });
+
+        // دالة لعرض النافذة المنبثقة
+        function showPopup(title, description) {
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.innerHTML = `
+                <div class="popup-content">
+                    <h2>${title}</h2>
+                    <p>${description}</p>
+                    <button class="close-btn">Close</button>
+                </div>
+            `;
+            document.body.appendChild(popup);
+
+            // إغلاق النافذة عند الضغط على زر "إغلاق"
+            popup.querySelector('.close-btn').addEventListener('click', () => {
+                document.body.removeChild(popup);
+            });
+        }
+
+        // وظيفة البحث التفاعلي
+        function searchManga() {
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            const mangaItems = document.querySelectorAll('.manga-item');
+            let foundResults = false;
+
+            mangaItems.forEach(item => {
+                const title = item.querySelector('.manga-title').textContent.toLowerCase();
+                const description = item.querySelector('.manga-description').textContent.toLowerCase();
+                if (title.includes(query) || description.includes(query)) {
+                    item.style.display = 'block';
+                    foundResults = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // عرض رسالة إذا لم يتم العثور على نتائج
+            const noResultsMessage = document.getElementById('no-results-message');
+            if (foundResults) {
+                noResultsMessage.style.display = 'none';
+            } else {
+                noResultsMessage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
